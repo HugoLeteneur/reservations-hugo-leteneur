@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Trajets</title>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <a href="#">Trains disponibles</a>
+            <button type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+            </button>
+            <div id="navbarNav">
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'trajets:reservations' %}">Mes Réservations</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'trajets:logout' %}">Se déconnecter</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'trajets:login' %}">Se connecter</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        <div>
+            <h2>Liste des Trajets</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gare de départ</th>
+                        <th>Gare d'arrivée</th>
+                        <th>Date de départ</th>
+                        <th>Date d'arrivée</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for trajet in trajets %}
+                    <tr>
+                        <td>{{ trajet.gare_depart }}</td>
+                        <td>{{ trajet.gare_arrivee }}</td>
+                        <td>{{ trajet.heure_depart }}</td>
+                        <td>{{ trajet.heure_arrivee }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

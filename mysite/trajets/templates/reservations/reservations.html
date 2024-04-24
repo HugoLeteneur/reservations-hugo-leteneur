@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des réservations</title>
+</head>
+
+<body>
+    <h1>Liste de vos réservations</h1>
+    <ul>
+        {% for reservation in reservations %}
+        <li>Réservation {{ reservation.id }}</a></li>
+        <p>{{ reservation.trajet }}</p>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Reservation</title>
+</head>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" formaction="http://localhost:8000/trajets/nouvelle_reservation/">Edit
+            Reservation</button>
+    </form>
+</body>
+
+</html>
+
+</html>

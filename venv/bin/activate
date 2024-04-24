@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/hugoleteneur/Desktop/Pro/Supaero/2A/Informatique/Django/Projet/venv"
+VIRTUAL_ENV="/Users/hugoleteneur/Desktop/Pro/Supaero/2A/Informatique/Django/Projet/reservations-hugo-leteneur/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

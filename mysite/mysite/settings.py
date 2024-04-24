@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "trajects.apps.TrajectsConfig",
+    "trajets.apps.TrajetsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -123,5 +123,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = "/trajects/trajets"
-LOGOUT_REDIRECT_URL = "/trajects/trajets"
+LOGIN_REDIRECT_URL = "/trajets/trajets"
+LOGOUT_REDIRECT_URL = "/trajets/trajets"
