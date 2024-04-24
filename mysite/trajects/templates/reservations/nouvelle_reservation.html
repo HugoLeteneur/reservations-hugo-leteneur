@@ -1,0 +1,30 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réserver un trajet</title>
+</head>
+
+<body>
+    <h1>Réserver un trajet</h1>
+    <form action="{% url 'nouvelle_reservation' %}" method="post">
+        {% csrf_token %}
+        <label for="trajet">Sélectionner un trajet :</label>
+        <select name="trajet" id="trajet">
+            {% for trajet in trajets %}
+            <option value="{{ trajet.id }}">
+                {{ trajet.gare_depart }} - {{ trajet.gare_arrivee }}
+            </option>
+            {% endfor %}
+        </select>
+        <input type="hidden" name="trajet_id" id="trajet_id">
+        <button type="submit">Réserver</button>
+    </form>
+    <script>
+        // Script pour mettre à jour la valeur du champ de formulaire caché avec l'ID du trajet sélectionné
+        document.getElementById('trajet').addEventListener('change', function () {
+            document.getElementById('trajet_id').value = this.value;
+        });
+    </script>
+</body>

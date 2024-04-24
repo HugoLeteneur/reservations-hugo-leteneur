@@ -1,0 +1,18 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Reservation</title>
+</head>
+
+<body>
+    <form method="POST" action="{% url 'nouvelle_reservation' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="trajet_id" value="{{ trajet_id }}">
+        <button type="submit">Edit Reservation</button>
+    </form>
+</body>
+
+</html>
