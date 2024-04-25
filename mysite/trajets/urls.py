@@ -4,6 +4,7 @@ from django.contrib.auth import views as auth_views
 
 app_name = 'trajets'
 
+
 urlpatterns = [
     path('', views.trajets_redirect, name='trajets_redirect'),  
     path('trajets/', views.trajets, name='trajets'),

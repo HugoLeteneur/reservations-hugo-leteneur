@@ -1,24 +1,34 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des réservations</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Liste de vos réservations</h1>
-    <ul>
-        {% for reservation in reservations %}
-        <li>Réservation {{ reservation.id }}</a></li>
-        <p>{{ reservation.trajet }}</p>
-        {% endfor %}
-    </ul>
+    <div class="container mt-4">
+        <h1>Liste de vos réservations</h1>
+        <ul class="list-group">
+            {% for reservation in reservations %}
+            <li class="list-group-item">
+                Réservation {{ reservation.id }} <br>
+                {{ reservation.trajet }}
+                <a href="{% url 'trajets:reservation_detail' reservation.id %}"
+                    class="btn btn-primary float-right">Détails</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'trajets:trajets' %}" class="btn btn-secondary mt-3">Retour à la liste des trajets</a>
+    </div>
 </body>
 
 </html>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -31,11 +41,9 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" formaction="http://localhost:8000/trajets/nouvelle_reservation/">Edit
-            Reservation</button>
+        <button type="submit" formaction="http://localhost:8000/trajets/nouvelle_reservation/"
+            class="btn btn-primary mt-3">Edit Reservation</button>
     </form>
 </body>
-
-</html>
 
 </html>

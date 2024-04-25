@@ -1,18 +1,27 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Reservation</title>
+    <title>Détails de la réservation </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <form method="POST" action="{% url 'nouvelle_reservation' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="hidden" name="trajet_id" value="{{ trajet_id }}">
-        <button type="submit">Edit Reservation</button>
-    </form>
+    <div class="container mt-5">
+        <h1 class="mb-4">Détails de la réservation n° {{ reservation.numero_reservation }}</h1>
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">Date de réservation : {{ reservation.date }}</p>
+                <p class="card-text">Client : {{ reservation.client }}</p>
+                <p class="card-text">Passager : {{ reservation.passenger }}</p>
+                <p class="card-text">Trajet : {{ reservation.trajet }}</p>
+            </div>
+        </div>
+        <a href="{% url 'trajets:reservations' %}" class="btn btn-primary mt-3">Retour à la page des réservations</a>
+    </div>
 </body>
 
 </html>
